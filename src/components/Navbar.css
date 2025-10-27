@@ -1,0 +1,139 @@
+.navbar-container {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Shift navbar left when circular nav is fixed */
+body.circular-nav-fixed .navbar-container {
+  transform: translateX(-200px);
+}
+
+.navbar {
+  
+  width: 100%;
+  top: 0;
+  margin-top: 10px;
+  transition: all 0.5s ease;
+}
+
+.navbar.floating-navbar {
+  
+  background-color: rgba(0, 0, 0, 0.3);
+
+  width:400px;
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(5px);
+  border-radius: 40px;
+  opacity: 1;
+}
+
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height:60px;
+
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  filter:none;
+  transition: filter 0.5s ease;
+}
+.logo:hover {
+ filter:url(#glow);
+}
+
+.navbar-logo h2 {
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 1.75rem;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+}
+.floating-navbar .navbar-menu {
+  gap: 1rem;
+}
+
+.navbar-menu li a {
+  color: white;
+  font-weight: 500;
+  padding: 0rem 0rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-icon {
+  font-size: 1.2rem;
+  display: none; /* Hide icons on desktop */
+  align-items: center;
+}
+
+.nav-text {
+  display: inline;
+}
+
+.navbar-menu li{
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  transition: all 0.3s ease;
+}
+
+/* .navbar.floating-navbar .navbar-menu li a {
+  color: var(--text-primary);
+} */
+
+.navbar-menu li a:hover {
+  filter:url(#glow);
+  transition: all 0.4s cubic-bezier(.25,1.5,.5,1);
+  
+}
+
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.navbar-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.navbar.floating-navbar .navbar-toggle span {
+  background-color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  /* Don't shift navbar on mobile */
+  body.circular-nav-fixed .navbar-container {
+    transform: translateX(0);
+  }
+  
+}
+
