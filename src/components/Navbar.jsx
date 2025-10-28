@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { IoHome, IoInformationCircle, IoMail } from 'react-icons/io5'
+import logoImg from '../assets/images/logo.png'
 import './Navbar.css'
 
 function Navbar() {
@@ -33,7 +34,7 @@ function Navbar() {
       <div className="container">
         <div className="navbar-content">
           <Link to="/" className="navbar-logo">
-            <img className="logo" src="/src/assets/images/logo.png" alt="Avoda"/>
+            <img className="logo" src={logoImg} alt="Avoda"/>
           </Link>
           
           <button className="navbar-toggle" onClick={toggleMenu}>

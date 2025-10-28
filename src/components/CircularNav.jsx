@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { IoPeople, IoColorPalette, IoCodeSlash, IoRocketSharp } from 'react-icons/io5'
 import { FaMobileAlt } from "react-icons/fa";
 import { IoMdRefresh } from "react-icons/io";
-
+import iconImg from '../assets/images/icon.png'
 import './CircularNav.css'
 
 function CircularNav() {
@@ -58,7 +58,7 @@ function CircularNav() {
           
           <div className="circular-nav-wrapper">
             <div className="center-logo">
-              <img src="/src/assets/images/icon.png" alt="Avoda Logo" />
+              <img src={iconImg} alt="Avoda Logo" />
             </div>
 
             <div className={`nav-buttons-circle ${isFixed ? 'fixed-top' : ''}`}>
