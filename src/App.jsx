@@ -2,19 +2,21 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import CircularNav from './components/CircularNav'
 import ContentSections from './components/ContentSections'
 import Footer from './components/Footer'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import './App.css'
-
+import PreviewSection from './components/previewSection'
 function HomePage() {
   return (
     <>
+    <div className="page-bg">
+    </div>
       <Hero />
-      <CircularNav />
+      <PreviewSection />
       <ContentSections />
+      
     </>
   )
 }
