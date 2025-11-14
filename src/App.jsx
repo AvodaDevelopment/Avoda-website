@@ -8,13 +8,16 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import './App.css'
 import PreviewSection from './components/previewSection'
+import MissionStatement from './components/MissionStatement'
 function HomePage() {
   return (
     <>
     <div className="page-bg">
     </div>
       <Hero />
+      <MissionStatement />
       <PreviewSection />
+
       <ContentSections />
       
     </>

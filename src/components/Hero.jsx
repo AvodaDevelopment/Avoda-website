@@ -7,8 +7,7 @@ import { IoArrowDown } from "react-icons/io5";
 import './Hero.css'
 
 function Hero() {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.2 })
+  
   
   const textArray = ['Solutions', 'Websites', 'Apps', 'Landing Pages', 'Design'];
   const [displayedText, setDisplayedText] = useState(textArray[0]);
@@ -21,13 +20,9 @@ function Hero() {
   // Transform scroll position to overlay opacity
   // When scrollY is 0, opacity is 0
   // When scrollY is 500, opacity is 0.7
-  const overlayOpacity = useTransform(scrollY, [0, 500], [0, 1])
+  
+
   const scrollHintOpacity = useTransform(scrollY, [0, 1], [1, 0])
-
-  useEffect(() => {
-    if (inView) controls.start("visible");
-  }, [controls, inView]);
-
   useEffect(() => {
     const currentWord = textArray[currentIndex];
     let timeout;
@@ -62,16 +57,9 @@ function Hero() {
   }, [displayedText, currentIndex, isDeleting, textArray]);
 
   return (
-    <motion.section
+    <section
       className="hero"
-      ref={ref}
-      initial="hidden"
-      animate={controls}
-      variants={{
-        visible: { opacity: 1 },
-        hidden: { opacity: 0 },
-
-      }}
+      
     >
       {/* Dark overlay that fades in on scroll */}
       {/* <motion.div
@@ -93,10 +81,12 @@ function Hero() {
             <Link to="/contact" className="btn btn-primary">Get Started</Link>
             <Link to="/about" className="btn btn-secondary">Learn More</Link>
           </div>
-          <motion.div className={"hero-scroll-down"} style={{opacity:scrollHintOpacity}}>scroll down <IoArrowDown /></motion.div>
+          <motion.div className={"hero-scroll-down"} 
+          style={{opacity:scrollHintOpacity}}
+          >scroll down <IoArrowDown /></motion.div>
         </div>
       </div>
-    </motion.section>
+    </section>
   )
 }
 

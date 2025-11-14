@@ -1,0 +1,163 @@
+.mission-statement-overlay{
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(48, 232, 177, 0.64), rgba(163, 203, 207, 0.64) 55%), radial-gradient(circle at bottom right, rgba(171, 221, 255, 0.16), transparent 50%);
+    pointer-events: none;
+
+}
+.mission-statement {
+    /* margin: 40px 40px; */
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 64px;
+    align-items:flex-end;
+    justify-content: center;
+    padding: 96px clamp(32px, 8vw, 80px);
+    background: radial-gradient(circle at top left, rgba(48, 232, 176, 0.12), transparent 55%),
+                radial-gradient(circle at bottom right, rgba(171, 221, 255, 0.16), transparent 50%);
+   /* border-radius: 32px; */
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+
+}
+
+.mission-statement::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle 800px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(143, 255, 221, 0.139) 0%,
+        rgba(171, 221, 255, 0) 30%,
+        transparent 40%
+    );
+    pointer-events: none;
+    transition: background 0.1s ease-out;
+    z-index: 2;
+}
+
+.mission-statement-text {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    color: var(--text-secondary);
+}
+
+.mission-statement-text h2 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.name-definition {
+    display: grid;
+    gap: 16px;
+}
+
+.name-definition h2 {
+    font-size: clamp(3rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 0.9;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+.devices-display-mission-statement{
+    width:100%;
+    height:100%;
+}
+.name-definition p {
+    margin: 0;
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 28ch;
+}
+
+.name-definition .hebrew {
+    display: inline-block;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 600;
+    color: #30E8B0;
+    letter-spacing: 0.12em;
+}
+
+.name-definition .italic {
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    font-style: italic;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: lowercase;
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    margin-left: 8px;
+}
+
+.mission-statement-text p {
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.72);
+    margin: 0;
+}
+
+.mission-statement-image {
+    position: relative;
+    z-index: 1;
+
+    
+    width: 100%;
+    max-width: 400px;
+}
+
+
+
+@media (max-width: 1024px) {
+    .mission-statement {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 72px clamp(24px, 6vw, 48px);
+        text-align: center;
+    }
+
+    .mission-statement-text {
+        align-items: center;
+        gap: 24px;
+    }
+
+    .mission-statement-text p,
+    .name-definition p {
+        max-width: 42ch;
+    }
+
+  
+}
+
+@media (max-width: 640px) {
+    .mission-statement {
+        gap: 32px;
+        padding: 56px 24px;
+    }
+
+    .mission-statement-image {
+        min-height: 220px;
+        border-radius: 20px;
+    }
+
+    .mission-statement-image::after {
+        inset: 14px;
+        border-radius: 16px;
+    }
+}
+
+.mission-statement-curveCutOut{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    
+}

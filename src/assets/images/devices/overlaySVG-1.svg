@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 314.76 200.75">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+      .cls-6 {
+        fill: #f8f7fb;
+        mix-blend-mode: lighten;
+        opacity: .16;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-1" width="314.76" height="200.75" rx="7.62" ry="7.62"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#clippath)">
+    <rect class="cls-6" x="161.31" y="-121.11" width="432.06" height="449.82" transform="rotate(0,157.38,100.375)"/>
+  </g>
+</svg>

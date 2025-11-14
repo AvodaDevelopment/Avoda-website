@@ -11,7 +11,7 @@ function PreviewSection() {
     const rotateIn = useTransform(scrollY, [0, 300], [-20, 0])
     const fadeIn = useTransform(scrollY, [0, 300], [0, 1])
     const moveIn = useTransform(scrollY, [0, 200], [-10, 0])
-    const moveUp = useTransform(scrollY, [0, 200], [0, -100])
+    const moveUp = useTransform(scrollY, [0, 200], [0, 0])
     
     useEffect(() => {
         if (inView) controls.start("visible");
@@ -78,7 +78,7 @@ function PreviewSection() {
 
         container.scrollTo({
           left: offsetLeft,
-          behavior: 'smooth',
+          behavior: 'instant',
         });
       };
 
