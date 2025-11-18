@@ -63,6 +63,9 @@
     width:100%;
     height:100%;
     background-color:rgba(62, 255, 223, 0.562);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     border-radius: 15px;
     scale: 0.95;
     opacity: 0.5;
@@ -70,23 +73,33 @@
     overflow: hidden;
     position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content:flex-end;
+    align-items:flex-start;
+    padding: 20px;
 }
 
-.preview-carousel-item img{
-    width:300px;
-    height:auto;
-    opacity: 0.2;
-    border-radius: 15px;
-}
 .preview-carousel-item h2{
-    position: absolute;
-    bottom: 15px;
-    left: 30px;
-
+    position: relative;
     color:white;
+    margin-bottom: 0.2rem;
 }
+.preview-carousel-item p{
+    position: relative;
+    color:white;
+    width: 40%;
+    margin-bottom: 0.2rem;
+}
+.preview-carousel-item a{
+    position: relative;
+    color:var(--secondary-color);
+    font-style: italic;
+    transition: all 0.3s ease;
+    &:hover{
+        color:var(--primary-color);
+    }
+}
+
 .preview-carousel-item.inView{
     scale: 1;
     opacity: 1;

@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { useInView } from 'react-intersection-observer'
-import computer from '../assets/images/devices/computerdevice.png'
-import tablet from '../assets/images/devices/tabletdevice.png'
-import phone from '../assets/images/devices/phonedevice.png'
+import computer from '@assets/images/devices/computerdevice.png'
+import tablet from '@assets/images/devices/tabletdevice.png'
+import phone from '@assets/images/devices/phonedevice.png'
 import './DevicesDisplay.css'
 
 function DevicesDisplay() {

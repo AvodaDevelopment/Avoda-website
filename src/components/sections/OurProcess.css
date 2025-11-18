@@ -1,0 +1,97 @@
+.our-process-section {
+  padding: 6rem 0;
+  background: radial-gradient(circle at top left, rgba(48, 232, 176, 0.08), transparent 60%),
+              radial-gradient(circle at bottom right, rgba(171, 221, 255, 0.11), transparent 55%);
+  position: relative;
+  overflow: hidden;
+}
+
+.our-process-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+.section-title {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 3.5rem;
+  color: #fff;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 2.5rem;
+}
+
+.process-step {
+  background: rgba(40, 60, 70, 0.35);
+  border-radius: 18px;
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  margin: 0;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 6px 36px rgba(0,0,0,0.10);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform 0.24s cubic-bezier(.23,.8,.55,1.08), box-shadow 0.22s;
+  z-index: 1;
+}
+
+.process-step:hover {
+  transform: translateY(-8px) scale(1.025);
+  box-shadow: 0 12px 48px rgba(50,255,180,0.14), 0 1.5px 8px rgba(45, 200, 232, 0.08);
+  border-color: var(--primary-color, #30e8b0);
+}
+
+.process-step-number {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #30e8b0 10%, #aaddff 100%);
+  color: #153441;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 auto 1.5rem auto;
+  box-shadow: 0 6px 24px rgba(48,232,176,0.09);
+}
+
+.process-step-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.process-step-description {
+  font-size: 1.07rem;
+  color: rgba(255,255,255,0.77);
+  margin: 0;
+  line-height: 1.8;
+}
+
+@media (max-width: 800px) {
+  .process-steps {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .our-process-section {
+    padding: 4rem 0;
+  }
+  .process-step {
+    padding: 2rem 1rem 1.6rem 1rem;
+  }
+  .section-title {
+    font-size: 2.1rem;
+  }
+}
+

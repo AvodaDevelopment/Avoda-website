@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import iconImg from '../assets/images/icon.png'
+import iconImg from '@assets/images/icon.png'
 import { IoArrowDown } from "react-icons/io5";
 import './Hero.css'
 

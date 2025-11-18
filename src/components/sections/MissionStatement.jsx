@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer'
 
 import './MissionStatement.css'
 // import devices from '../assets/images/devices.png'
-import DevicesDisplay from './DevicesDisplay'
+import DevicesDisplay from '../DevicesDisplay'
 
 function MissionStatement() {
     const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 })
