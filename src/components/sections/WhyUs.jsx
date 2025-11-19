@@ -1,23 +1,71 @@
 import React from 'react';
+import { useState } from 'react';
+import DevicesDisplay from '../DevicesDisplay';
+import './WhyUs.css';
+import AppImage from '@assets/images/carousel/app.jpg'
+import WebsiteImage from '@assets/images/carousel/website.jpg'
+import LandingPageImage from '@assets/images/carousel/landing page.jpg'
 
 const WhyUs = () => {
+
+  const [openIndex, setOpenIndex] = useState(0);
+
+  // const item = (title, body) => {
+
+  // }
+
+  const items = [
+    {
+      title: 'Built for Speed',
+      body: 'Launch your product in weeks, not months. We use agile development practices to deliver MVPs fast, so you can start validating your ideas with real users.',
+      icon: '⚡',
+      display: AppImage
+    },
+    {
+      title: 'Transparent Pricing',
+      body: 'No surprises, no hidden fees. Get a clear fixed quote within 48 hours. We believe in honest pricing that respects your startup budget.',
+      icon: '💰',
+      display: WebsiteImage
+    },
+    {
+      title: 'Founder-to-Founder',
+      body: 'We speak entrepreneur. Having built our own products, we understand the unique challenges you face and deliver solutions that truly support your vision.',
+      icon: '🤝',
+      display: LandingPageImage
+    },
+    {
+      title: 'Something Else',
+      body: 'It is crazy when you get a lot of text to talk about something cool. But this is even crazier when you get a lot of text to talk about something cool.',
+      icon: '🤝',
+      display: LandingPageImage
+    },
+  ]
+
   return (
-    <section className="why-us-section" style={{ padding: '60px 0', background: '#f9f9f9' }}>
-      <div className="container" style={{ maxWidth: 900, margin: '0 auto' }}>
-        <h2 style={{ textAlign: 'center', marginBottom: 32 }}>Why Choose Us?</h2>
-        <div className="why-us-features" style={{ display: 'flex', flexWrap: 'wrap', gap: 32, justifyContent: 'center' }}>
-          <div className="feature-card" style={{ background: '#fff', padding: 24, borderRadius: 8, boxShadow: '0 2px 8px rgba(0,0,0,0.05)', flex: '1 1 250px', minWidth: 250 }}>
-            <h3 style={{ marginBottom: 14 }}>Expert Team</h3>
-            <p>Our team consists of experienced professionals dedicated to delivering the best results for our clients.</p>
+    <section className="why-us-section">
+      <div className="acc-container">
+        <div className="acc-content">
+          <h2>Why Choose Us?</h2>          
+          <div className="items">
+            {items.map((item, index) => (
+              <div className={`item ${openIndex === index ? 'open' : ''}`} key={index} onClick={() => setOpenIndex(index)}>
+                <div className="acc-header">
+                  <span className="icon-emoji" style={{ fontSize: '24px' }}>
+                    {item.icon}
+                  </span>
+                  <h3>{item.title}</h3>
+                </div>
+                <div className="body">
+                  <p>{item.body}</p>
+                </div>
+              </div>
+            ))}
           </div>
-          <div className="feature-card" style={{ background: '#fff', padding: 24, borderRadius: 8, boxShadow: '0 2px 8px rgba(0,0,0,0.05)', flex: '1 1 250px', minWidth: 250 }}>
-            <h3 style={{ marginBottom: 14 }}>Customer Focus</h3>
-            <p>We prioritize our clients’ needs and offer personalized solutions tailored to each project.</p>
-          </div>
-          <div className="feature-card" style={{ background: '#fff', padding: 24, borderRadius: 8, boxShadow: '0 2px 8px rgba(0,0,0,0.05)', flex: '1 1 250px', minWidth: 250 }}>
-            <h3 style={{ marginBottom: 14 }}>Quality Assurance</h3>
-            <p>We ensure that every product and service meets the highest standards of quality and reliability.</p>
-          </div>
+        </div>
+        <div className="display">
+          {items.map((item, index) => (
+            <img className={`display-image ${openIndex === index ? 'open' : ''}`} src={item.display} alt={item.title} width={"100%"} height={"100%"} key={item.title} />
+          ))}
         </div>
       </div>
     </section>
