@@ -18,11 +18,13 @@ function HomePage() {
     <div className="page-bg">
     </div>
       <Hero />
-      <MissionStatement />
+      
+      <div className="intro-spacer"></div>
       <PreviewSection />
-      <WhyUs />
-      <OurProccess />
-      <Features />
+      
+        <WhyUs />
+        <OurProccess />
+        <Features />
     </>
   )
 }

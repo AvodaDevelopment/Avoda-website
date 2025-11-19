@@ -1,8 +1,9 @@
 import './About.css'
-
+import MissionStatement from '../components/sections/MissionStatement'
 function About() {
   return (
     <div className="about-page">
+      <MissionStatement />
       <div className="container">
         <div className="about-header">
           <h1>About Avoda</h1>

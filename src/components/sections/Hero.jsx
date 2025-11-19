@@ -13,15 +13,27 @@ function Hero() {
   const [displayedText, setDisplayedText] = useState(textArray[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [viewportHeight, setViewportHeight] = useState(typeof window !== 'undefined' ? window.innerHeight : 800);
   
   // Track scroll position
   const { scrollY } = useScroll()
 
-  // Transform scroll position to overlay opacity
-  // When scrollY is 0, opacity is 0
-  // When scrollY is 500, opacity is 0.7
-  
+  // Update viewport height on resize
+  useEffect(() => {
+    const handleResize = () => {
+      setViewportHeight(window.innerHeight);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
+  // Transform scroll position to hero opacity (fade out as you scroll)
+  // When scrollY is 0, opacity is 1 (fully visible)
+  // When scrollY is viewport height, opacity is 0 (fully faded)
+  const heroOpacity = useTransform(scrollY, [0, viewportHeight], [1, 0])
+  const heroScale = useTransform(scrollY, [0, viewportHeight], [1, 0.8])
+  
+  // Transform scroll position to scroll hint opacity
   const scrollHintOpacity = useTransform(scrollY, [0, 1], [1, 0])
   useEffect(() => {
     const currentWord = textArray[currentIndex];
@@ -57,9 +69,9 @@ function Hero() {
   }, [displayedText, currentIndex, isDeleting, textArray]);
 
   return (
-    <section
+    <motion.section
       className="hero"
-      
+      style={{ opacity: heroOpacity, scale: heroScale }}
     >
       {/* Dark overlay that fades in on scroll */}
       {/* <motion.div
@@ -86,7 +98,7 @@ function Hero() {
           >scroll down <IoArrowDown /></motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

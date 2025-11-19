@@ -13,7 +13,7 @@ function PreviewSection() {
     const controls = useAnimation();
     const [ref, inView] = useInView({ threshold: 0.2 })
     const { scrollY } = useScroll()
-    const rotateIn = useTransform(scrollY, [0, 300], [-20, 0])
+    const rotateIn = useTransform(scrollY, [0, 500], [-20, 0])
     const fadeIn = useTransform(scrollY, [0, 300], [0, 1])
     const moveIn = useTransform(scrollY, [0, 200], [-10, 0])
     const moveUp = useTransform(scrollY, [0, 200], [0, 0])

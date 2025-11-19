@@ -1,40 +1,75 @@
 import React from "react";
-
+import { FaSearch, FaPencilAlt, FaCode, FaRocket } from "react-icons/fa";
+import { FaClipboardList, FaDraftingCompass, FaHandshake } from "react-icons/fa";
+import { useState } from "react";
+import './OurProcess.css'
+import { motion } from "framer-motion";
 const processSteps = [
   {
-    title: "Step 1: Discover",
+    title: "Step 1: Fill the form",
+    icon: <FaClipboardList />,
     description:
-      "We work closely to understand your needs, goals, and challenges, laying the foundation for a tailored solution.",
+      "Start by filling out our detailed form to share your project requirements, goals, and vision. This helps us understand your needs and lay the foundation for a tailored solution.",
   },
   {
-    title: "Step 2: Plan",
+    title: "Step 2: Prototype",
+    icon: <FaDraftingCompass />,
+
     description:
-      "Our expert team crafts a strategy focused on efficiency, innovation, and measurable results.",
+      "Based on your requirements, we create a comprehensive prototype that visualizes your software or app. This interactive mockup allows you to see and experience the design before development begins."
   },
   {
-    title: "Step 3: Execute",
+    title: "Step 3: Pitch",
+    icon: <FaHandshake />,
+
     description:
-      "Bringing the plan to life, we develop and deliver with transparent communication and agile methodology.",
+      "We present our design and strategy, working closely with you as partners. Through collaborative discussion, we refine the solution to perfectly align with your business objectives and user needs."
   },
   {
-    title: "Step 4: Deliver",
+    title: "Step 4: Build",
+    icon: <FaCode />,
+
     description:
-      "We deploy your solution and ensure you have all the support you need for long-term success.",
+      "With your approval, we bring the plan to life using modern technologies and agile methodology. You'll receive regular updates and transparent communication throughout the development process.",
   },
+  {
+    title: "Step 5: Deploy",
+    icon: <FaRocket />,
+
+    description:
+      "We deploy your solution to production and provide comprehensive support to ensure smooth launch and long-term success. Your success is our priority, and we're here to help every step of the way.",
+  }
 ];
 
 const OurProccess = () => {
+  const [selectedStep, setSelectedStep] = useState(0);
+  const handleStepClick = (step) => {
+    setSelectedStep(step);
+  }
   return (
     <section className="our-process-section">
+
       <div className="container">
+
         <h2 className="section-title">Our Process</h2>
+        
+        <div className="content-container">
+        {processSteps.map((step, idx) => (
+          <div className="content" key={idx} data-selected={selectedStep === idx}>
+            <h3 className="content-title">{step.title}</h3>
+            <p className="content-description">{step.description}</p>
+          </div>
+        ))}
+          
+        </div>
         <div className="process-steps">
           {processSteps.map((step, idx) => (
-            <div className="process-step" key={idx}>
-              <div className="process-step-number">{idx + 1}</div>
-              <h3 className="process-step-title">{step.title}</h3>
-              <p className="process-step-description">{step.description}</p>
-            </div>
+            <React.Fragment key={idx}>
+            <button className="process-step" data-selected={selectedStep === idx} onClick={() => handleStepClick(idx)}>
+              <span className="process-step-icon">{step.icon}</span>
+            </button>
+            {idx < processSteps.length - 1 && <div className="line-gap"></div>}
+            </React.Fragment>
           ))}
         </div>
       </div>
