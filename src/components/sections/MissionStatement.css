@@ -119,29 +119,39 @@
 
 @media (max-width: 1024px) {
     .mission-statement {
-        grid-template-columns: 1fr;
+        flex-direction: column;
         gap: 48px;
-        padding: 72px clamp(24px, 6vw, 48px);
+        padding: 64px clamp(24px, 6vw, 48px);
+        padding-top: 64px;
         text-align: center;
+        align-items: center;
     }
 
     .mission-statement-text {
         align-items: center;
         gap: 24px;
+        width: 100%;
     }
 
     .mission-statement-text p,
     .name-definition p {
-        max-width: 42ch;
+        max-width: 100%;
     }
-
-  
 }
 
 @media (max-width: 640px) {
     .mission-statement {
         gap: 32px;
-        padding: 56px 24px;
+        padding: 48px 20px;
+        padding-top: 48px;
+    }
+
+    .mission-statement-text {
+        gap: 20px;
+    }
+
+    .name-definition {
+        gap: 12px;
     }
 
     .mission-statement-image {

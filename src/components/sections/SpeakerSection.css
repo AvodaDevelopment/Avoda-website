@@ -71,3 +71,20 @@
     display: inline-block;
     margin-left: 0.5rem;
 }
+@media (max-width: 768px) {
+    .speaker-section-content-container {
+        padding: 1rem 1rem;
+    }
+    .speaker-section-content-profile {
+        display: none;
+    }
+
+    .speaker-section h3 {
+        font-size: 1.2rem;
+        margin-right: 0;
+    }
+    .speaker-section{
+        padding: 1rem;
+        position: relative;
+    }
+}

@@ -204,7 +204,7 @@
 
 @media (max-width: 640px) {
   .why-us-section {
-    padding: 56px 24px;
+    padding: 48px 20px;
   }
 
   .why-us-section .acc-container {
@@ -212,10 +212,24 @@
   }
 
   .why-us-section .acc-content .items .item {
-    padding: 16px 20px;
+    padding: 16px 18px;
   }
 
   .why-us-section .display {
     min-height: 300px;
+    border-radius: 16px;
+  }
+  
+  .acc-content h2 {
+    font-size: 1.75rem;
+    margin-bottom: 24px;
+  }
+  
+  .why-us-section .acc-content .acc-header h3 {
+    font-size: 1rem;
+  }
+  
+  .why-us-section .acc-content .items .item .body p {
+    font-size: 0.875rem;
   }
 }
