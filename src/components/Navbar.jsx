@@ -28,6 +28,19 @@ function Navbar() {
     }
   }, [])
 
+  // Close menu when clicking outside or on route change
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isMenuOpen])
+
   return (
     <div className="navbar-container">  
     <nav className={`navbar ${isScrolled ? 'floating-navbar' : ''}`}>
@@ -37,12 +50,23 @@ function Navbar() {
             <img className="logo" src={logoImg} alt="Avoda"/>
           </Link>
           
-          <button className="navbar-toggle" onClick={toggleMenu}>
+          <button 
+            className={`navbar-toggle ${isMenuOpen ? 'active' : ''}`} 
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
             <span></span>
             <span></span>
             <span></span>
           </button>
 
+          {isMenuOpen && (
+            <div 
+              className="navbar-overlay" 
+              onClick={() => setIsMenuOpen(false)}
+              aria-hidden="true"
+            />
+          )}
           <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
             <li>
               <Link to="/" onClick={() => setIsMenuOpen(false)}>

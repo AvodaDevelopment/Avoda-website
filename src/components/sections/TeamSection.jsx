@@ -5,15 +5,17 @@ import CalebImage from '@assets/images/people/caleb.jpg'
 import JackImage from '@assets/images/people/jack.jpg'
 
 const team = [
+    
     {
         name: 'Joshua Karr',
-        title: 'Founder & CEO',
+        title: 'Co-Founder & CTO',
         description: 'Joshua is an ambitous inovator and thinker who loves creative ideas. His love for software engineering and entrepreneurship is what drives him to help build new and innovative solutions.',
+        
         image: JoshuaImage
     },
     {
         name: 'Caleb Karr',
-        title: 'Co-Founder & CTO',
+        title: 'Founder & CEO',
         description: 'Caleb is a software engineer and entrepreneur. His creative eye and probelm solving skills makes him a valuable asset to the team. He is always looking for a better way to do things.',
         image: CalebImage
     },

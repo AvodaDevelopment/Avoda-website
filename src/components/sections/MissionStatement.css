@@ -1,7 +1,7 @@
 .mission-statement-overlay{
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at top left, rgba(48, 232, 177, 0.64), rgba(163, 203, 207, 0.64) 55%), radial-gradient(circle at bottom right, rgba(171, 221, 255, 0.16), transparent 50%);
+    background: radial-gradient(circle at top left, rgba(48, 232, 177, 0.358), rgba(163, 203, 207, 0.41) 55%), radial-gradient(circle at bottom right, rgba(171, 221, 255, 0.16), transparent 50%);
     pointer-events: none;
 
 }
@@ -30,7 +30,7 @@
     position: absolute;
     inset: 0;
     background: radial-gradient(
-        circle 800px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        circle 2000px at var(--mouse-x, 50%) var(--mouse-y, 50%),
         rgba(143, 255, 221, 0.139) 0%,
         rgba(171, 221, 255, 0) 30%,
         transparent 40%

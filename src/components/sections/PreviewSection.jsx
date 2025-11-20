@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { useEffect, useRef, useState } from 'react';
 import consultingImg from '@assets/images/carousel/Software.png'
 import softwareDevelopmentImg from '@assets/images/carousel/Software.png'
-import uiUxDesignImg from '@assets/images/carousel/UXDesign.png'
+import UxDesignImg from '@assets/images/carousel/UXDesign.png'
 import webBuildingImg from '@assets/images/carousel/Software.png'
 import automationImg from '@assets/images/carousel/Software.png'
 import appDevelopmentImg from '@assets/images/carousel/appDesign.png'
@@ -139,7 +139,8 @@ function PreviewSection() {
     {
       title: 'UI/UX Design',
       description: 'We develop UI/UX designs that are fast, responsive, and easy to use.',
-      imgSrc: null,
+      imgSrc: UxDesignImg,
+
     },
     {
       title: 'Web Building',
