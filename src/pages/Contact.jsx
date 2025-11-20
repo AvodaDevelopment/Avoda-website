@@ -10,6 +10,7 @@ function Contact() {
   })
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setIsSubmitted(false);
@@ -20,7 +21,9 @@ function Contact() {
   }
 
   const handleSubmit = (e) => {
+    if (isSubmitting) return;
     e.preventDefault()
+    setIsSubmitting(true);
     // Handle form submission here
     console.log('Form submitted:', formData)
     fetch("https://script.google.com/macros/s/AKfycbzTbmoef26ZpjTk7G5Zn7nN_c06tcS1io2f-Y_phaggayZTJLi9tr1nxEcPY4pLad4/exec", {
@@ -29,6 +32,7 @@ function Contact() {
     }).then(res => {
 
       setIsSubmitted(true);
+      setIsSubmitting(false);
       setFormData({ name: '', email: '', message: '' });
     })
     .catch(err => console.error('Error:', err));
@@ -110,7 +114,7 @@ function Contact() {
               <p>+1 (971) 979-2852</p>
             </motion.div>
           </motion.div>
-
+          <hr />
           <motion.form 
             className="contact-page-form contact-form" 
             onSubmit={handleSubmit} 
@@ -155,6 +159,7 @@ function Contact() {
               type="submit" 
               className="contact-page-btn btn btn-primary"
               variants={fadeInUp}
+              disabled={isSubmitting}
             >
               Send Message
             </motion.button>
@@ -165,7 +170,17 @@ function Contact() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
               >
-                Submitted!
+                Message Sent!
+              </motion.p>
+            )}
+            {isSubmitting && (
+              <motion.p 
+                className="contact-page-submitted"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                Sending...
               </motion.p>
             )}
           </motion.form>
