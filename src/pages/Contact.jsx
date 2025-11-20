@@ -8,7 +8,10 @@ function Contact() {
     message: ''
   })
 
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const handleChange = (e) => {
+    setIsSubmitted(false);
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -19,38 +22,42 @@ function Contact() {
     e.preventDefault()
     // Handle form submission here
     console.log('Form submitted:', formData)
-    alert('Thank you for your message! We will get back to you soon.')
-    setFormData({ name: '', email: '', message: '' })
+    fetch("https://script.google.com/macros/s/AKfycbzTbmoef26ZpjTk7G5Zn7nN_c06tcS1io2f-Y_phaggayZTJLi9tr1nxEcPY4pLad4/exec", {
+      method: "POST",
+      body: JSON.stringify(formData)
+    }).then(res => {
+
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', message: '' });
+    })
+    .catch(err => console.error('Error:', err));
   }
 
   return (
     <div className="contact-page">
-      <div className="container">
-        <div className="contact-header">
+      <div className="contact-page-bg page-bg"></div>
+      <div className="contact-page-container">
+        <div className="contact-page-header contact-header">
           <h1>Get in Touch</h1>
-          <p className="contact-lead">
+          <p className="contact-page-lead contact-lead">
             Have a question or want to work together? We'd love to hear from you.
           </p>
         </div>
 
-        <div className="contact-content">
-          <div className="contact-info">
-            <div className="info-item">
-              <h3>📧 Email</h3>
-              <p>hello@avoda.com</p>
+        <div className="contact-page-content contact-content">
+          <div className="contact-page-info contact-info">
+            <div className="contact-page-info-item info-item">
+              <h3>Email</h3>
+              <p>joshuatkarr@gmail.com</p>
             </div>
-            <div className="info-item">
-              <h3>📱 Phone</h3>
-              <p>+1 (555) 123-4567</p>
-            </div>
-            <div className="info-item">
-              <h3>📍 Location</h3>
-              <p>123 Innovation Street<br />Tech City, TC 12345</p>
+            <div className="contact-page-info-item info-item">
+              <h3>Phone</h3>
+              <p>+1 (971) 979-2852</p>
             </div>
           </div>
 
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <div className="form-group">
+          <form className="contact-page-form contact-form" onSubmit={handleSubmit}>
+            <div className="contact-page-form-group form-group">
               <label htmlFor="name">Name</label>
               <input
                 type="text"
@@ -61,7 +68,7 @@ function Contact() {
                 required
               />
             </div>
-            <div className="form-group">
+            <div className="contact-page-form-group form-group">
               <label htmlFor="email">Email</label>
               <input
                 type="email"
@@ -72,7 +79,7 @@ function Contact() {
                 required
               />
             </div>
-            <div className="form-group">
+            <div className="contact-page-form-group form-group">
               <label htmlFor="message">Message</label>
               <textarea
                 id="message"
@@ -83,7 +90,8 @@ function Contact() {
                 required
               ></textarea>
             </div>
-            <button type="submit" className="btn btn-primary">Send Message</button>
+            <button type="submit" className="contact-page-btn btn btn-primary">Send Message</button>
+            {isSubmitted && <p className="contact-page-submitted">Submitted!</p>}
           </form>
         </div>
       </div>

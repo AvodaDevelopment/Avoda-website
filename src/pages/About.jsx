@@ -1,55 +1,24 @@
 import './About.css'
 import MissionStatement from '../components/sections/MissionStatement'
+import SpeakerSection from '../components/sections/SpeakerSection'
+import TeamSection from '../components/sections/TeamSection'
+import JoshuaImage from '@assets/images/people/josh.jpg'
+
 function About() {
   return (
-    <div className="about-page">
-      <MissionStatement />
-      <div className="container">
-        <div className="about-header">
-          <h1>About Avoda</h1>
-          <p className="about-lead">
-            We're on a mission to create exceptional digital experiences
+    <>
+      <div className="page-bg"></div>
+      <div className="about-page">
+        <MissionStatement />
+        <SpeakerSection speaker={"Joshua Karr"} title={"CEO"} image={JoshuaImage}>
+          <h2> Our Story</h2>
+          <p>
+          For as long as I can remember, I have wanted to start a business and create real things. I have always been interested in the impact and useful applications of software development. When two of my buddies, my twin brother Caleb and my lifelong friend Jack, decided to join me and create Avoda. Caleb came up with the idea to name our business Avoda, as a way to reflect our servant hearts and Christian values. Avoda is here not only as a vessel for my tech ideas, but also as a platform for your ideas. In our entrepreneurship class, we observed how challenging it is for young, passionate entrepreneurs to develop digital platforms, whether it's a complex app at the core of their company or a simple landing page for their services. Most of these entrepreneurs get stuck at the implementation phase. That is where we come in. We offer affordable software development services and consulting to not only bring your idea to life but to ensure that we make the right decisions along the way. We can’t wait to help you bring your idea to life.
           </p>
-        </div>
-
-        <div className="about-content">
-          <div className="about-section">
-            <h2>Our Story</h2>
-            <p>
-              Founded with a vision to transform the digital landscape, Avoda brings together
-              creativity, technology, and innovation. We believe in building solutions that not
-              only meet today's needs but anticipate tomorrow's challenges.
-            </p>
-            <p>
-              Our team of passionate developers, designers, and strategists work together to
-              deliver exceptional results for our clients.
-            </p>
-          </div>
-
-          <div className="about-section">
-            <h2>Our Values</h2>
-            <div className="values-grid">
-              <div className="value-item">
-                <h3>Innovation</h3>
-                <p>Constantly pushing boundaries and exploring new possibilities</p>
-              </div>
-              <div className="value-item">
-                <h3>Quality</h3>
-                <p>Delivering excellence in every project we undertake</p>
-              </div>
-              <div className="value-item">
-                <h3>Collaboration</h3>
-                <p>Working together to achieve extraordinary results</p>
-              </div>
-              <div className="value-item">
-                <h3>Impact</h3>
-                <p>Creating meaningful solutions that make a difference</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        </SpeakerSection>
+        <TeamSection />
       </div>
-    </div>
+    </>
   )
 }
 
