@@ -57,12 +57,13 @@
     padding: 0 40px;
     scroll-snap-align: start;
     flex-shrink: 0;
+    overflow:clip;
 }
 
 .preview-carousel-item{
     width:100%;
     height:100%;
-    background-color:rgba(62, 255, 223, 0.562);
+    background-color:rgba(69, 133, 122, 0.354);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -99,7 +100,26 @@
         color:var(--primary-color);
     }
 }
+.preview-carousel-item img{
+    width:50%;
+    height:auto;
+    object-fit: cover;
+    border-radius: 30px 30px 0 0;
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+}
+.preview-carousel-item img:after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+    border-radius: 30px 30px 0 0;
 
+}
 .preview-carousel-item.inView{
     scale: 1;
     opacity: 1;

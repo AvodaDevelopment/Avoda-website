@@ -1,97 +1,112 @@
 .our-process-section {
   padding: 6rem 0;
-  background: radial-gradient(circle at top left, rgba(48, 232, 176, 0.08), transparent 60%),
-              radial-gradient(circle at bottom right, rgba(171, 221, 255, 0.11), transparent 55%);
+  background:
+  radial-gradient(circle at top left, rgba(48, 232, 176, 0.082), transparent 60%),
+  radial-gradient(circle at bottom right, rgba(171, 255, 242, 0.11), transparent 55%),
+  #151b20b1;
   position: relative;
   overflow: hidden;
+  color: white;
 }
-
-.our-process-section .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  box-sizing: border-box;
+.our-process-section .container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width:100%;
 }
-
-.section-title {
-  font-size: clamp(2.2rem, 5vw, 3.2rem);
-  text-align: center;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  margin-bottom: 3.5rem;
-  color: #fff;
-  text-transform: uppercase;
-  position: relative;
-}
-
 .process-steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 2.5rem;
-}
-
-.process-step {
-  background: rgba(40, 60, 70, 0.35);
-  border-radius: 18px;
-  padding: 2.5rem 1.5rem 2rem 1.5rem;
-  margin: 0;
-  text-align: center;
   position: relative;
-  box-shadow: 0 6px 36px rgba(0,0,0,0.10);
-  border: 1px solid rgba(255,255,255,0.08);
-  transition: transform 0.24s cubic-bezier(.23,.8,.55,1.08), box-shadow 0.22s;
-  z-index: 1;
-}
-
-.process-step:hover {
-  transform: translateY(-8px) scale(1.025);
-  box-shadow: 0 12px 48px rgba(50,255,180,0.14), 0 1.5px 8px rgba(45, 200, 232, 0.08);
-  border-color: var(--primary-color, #30e8b0);
-}
-
-.process-step-number {
-  width: 64px;
-  height: 64px;
-  background: linear-gradient(135deg, #30e8b0 10%, #aaddff 100%);
-  color: #153441;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0 auto 1.5rem auto;
-  box-shadow: 0 6px 24px rgba(48,232,176,0.09);
 }
+.line-gap{
+  width: 50px;
+  height: 4px;
+  background-color: rgba(218, 255, 238, 0.423);
 
-.process-step-title {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #fff;
-  letter-spacing: -0.01em;
 }
-
-.process-step-description {
-  font-size: 1.07rem;
-  color: rgba(255,255,255,0.77);
-  margin: 0;
-  line-height: 1.8;
+/* .process-steps::before{
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 4px;
+  background-color: white;
+} */
+.process-step {
+  background-color: rgba(255, 255, 255, 0.063);
+  color: rgba(203, 243, 255, 0.72);
+  backdrop-filter: blur(10px);
+  border-radius: 100%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(203, 243, 255, 0.72);
+  transition: all 0.2s ease;
 }
-
-@media (max-width: 800px) {
-  .process-steps {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  .our-process-section {
-    padding: 4rem 0;
-  }
-  .process-step {
-    padding: 2rem 1rem 1.6rem 1rem;
-  }
-  .section-title {
-    font-size: 2.1rem;
-  }
+.process-step[data-selected="true"]{
+  transition: all 0.2s ease;
+  scale: 1.07 !important;
+  background-color:  rgba(255, 255, 255, 0.2);
+  color: white;
 }
+.process-step:active{
+  scale: 1.02 !important;
+}
+.process-step-icon{
+  font-size: 20px;
+  margin:0;
+  padding:0;
+  line-height: 0;
+  /* color: rgba(203, 243, 255, 0.72); */
+  
+}
+.process-step:hover{
+  background-color:  rgba(255, 255, 255, 0.2);
+  scale: 1.05;
+}
+.content-container{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  position: relative;
+  height: 200px;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 20px;
 
+}
+.content{
+  position: absolute;
+  transition: all 0.5s ease;
+  
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+
+
+}
+.content[data-selected="true"]{
+transition: all 0.5s ease;
+transition-delay: 0.4s;
+  opacity: 1;
+  transform: translateY(0);
+}
+.content-title{
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.content-description{
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: rgba(203, 243, 255, 0.72);
+}
