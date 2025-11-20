@@ -24,7 +24,7 @@ function HomePage() {
       
         <WhyUs />
         <OurProccess />
-        <Features />
+        {/* <Features /> */}
     </>
   )
 }

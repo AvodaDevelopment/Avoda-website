@@ -3,11 +3,12 @@ import './PreviewSection.css'
 import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useRef, useState } from 'react';
-import consultingImg from '@assets/images/carousel/app.jpg'
-import softwareDevelopmentImg from '@assets/images/carousel/app.jpg'
-import uiUxDesignImg from '@assets/images/carousel/landing page.jpg'
-import webBuildingImg from '@assets/images/carousel/website.jpg'
-import automationImg from '@assets/images/carousel/app.jpg'
+import consultingImg from '@assets/images/carousel/Software.png'
+import softwareDevelopmentImg from '@assets/images/carousel/Software.png'
+import uiUxDesignImg from '@assets/images/carousel/UXDesign.png'
+import webBuildingImg from '@assets/images/carousel/Software.png'
+import automationImg from '@assets/images/carousel/Software.png'
+import appDevelopmentImg from '@assets/images/carousel/appDesign.png'
 import { Link } from 'react-router-dom'
 function PreviewSection() {
     const controls = useAnimation();
@@ -83,7 +84,7 @@ function PreviewSection() {
 
         container.scrollTo({
           left: offsetLeft,
-          behavior: 'instant',
+          behavior: 'smooth',
         });
       };
 
@@ -126,26 +127,40 @@ function PreviewSection() {
       title: 'Software Development',
       description: 'From small scripts to complex applications for desktop and mobile devices, we can help you build the software you need.',
       imgSrc: softwareDevelopmentImg,
+      imgStyles: {
+        bottom: '-50px',
+      }
     },
     {
       title: 'Consulting',
       description: 'We provide techical consulting services to help you feel confident in your technical decisions.',
-      imgSrc: consultingImg,
+      imgSrc: null,
     },
     {
       title: 'UI/UX Design',
       description: 'We develop UI/UX designs that are fast, responsive, and easy to use.',
-      imgSrc: uiUxDesignImg,
+      imgSrc: null,
     },
     {
       title: 'Web Building',
       description: 'From small landing pages to complex websites, we can help you build the website you need.',
-      imgSrc: webBuildingImg,
+      imgSrc: null,
     },
     {
       title: 'Automation',
       description: 'We can help you automate your business processes to save time and improve efficiency.',
-      imgSrc: automationImg,
+      imgSrc: null,
+    },
+    {
+      title: 'App Development',
+      description: 'We can help you develop apps for desktop and mobile devices.',
+      imgSrc: appDevelopmentImg,
+      imgStyles: {
+        bottom: '-100px',
+        width: '50%',
+        maxWidth: '500px',
+        right: '60px',
+      }
     }
   ]
 
@@ -163,10 +178,10 @@ function PreviewSection() {
                 {content.map((item, index) => (
                   <div key={index} className="preview-carousel-item-container" id={`preview-carousel-item-${index + 1}`} ref={registerItemRef(index)}>
                     <div 
-                      style={{ backgroundImage: `url(${item.imgSrc})` }}
                       className={`preview-carousel-item ${activeItemId === `preview-carousel-item-${index + 1}` ? "inView" : ""}`}>
                       <h2>{item.title}</h2>
                       <p>{item.description}</p>
+                      {item.imgSrc && <img src={item.imgSrc} alt={item.title} style={item.imgStyles? item.imgStyles : {}}/>}
                       <Link to={`#${item.title}`}>Learn more</Link>
                     </div>
                   </div>

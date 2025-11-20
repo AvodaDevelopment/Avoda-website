@@ -2,9 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import DevicesDisplay from '../DevicesDisplay';
 import './WhyUs.css';
-import AppImage from '@assets/images/carousel/app.jpg'
-import WebsiteImage from '@assets/images/carousel/website.jpg'
-import LandingPageImage from '@assets/images/carousel/landing page.jpg'
+import AppImage from '@assets/images/carousel/UXDesign.png'
+import WebsiteImage from '@assets/images/carousel/Software.png'
+import LandingPageImage from '@assets/images/carousel/appDesign.png'
 
 const WhyUs = () => {
 
