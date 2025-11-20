@@ -110,3 +110,25 @@ transition-delay: 0.4s;
   margin-bottom: 10px;
   color: rgba(203, 243, 255, 0.72);
 }
+
+@media (max-width: 768px) {
+  .our-process-section {
+    padding: 4rem 0;
+  }
+  .line-gap{
+    width: 30px;
+  }
+  .process-steps{
+    scale:0.9;
+  }
+  .content-container{
+    height: 230px;
+  }
+  .content-title{
+    font-size: 20px;
+  }
+  .content-description{
+    font-size: 18px;
+  }
+
+}

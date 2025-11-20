@@ -3,10 +3,10 @@ import './PreviewSection.css'
 import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useRef, useState } from 'react';
-import consultingImg from '@assets/images/carousel/Software.png'
+import consultingImg from '@assets/images/carousel/consulting.jpg'
 import softwareDevelopmentImg from '@assets/images/carousel/Software.png'
 import UxDesignImg from '@assets/images/carousel/UXDesign.png'
-import webBuildingImg from '@assets/images/carousel/Software.png'
+import webBuildingImg from '@assets/images/carousel/website.png'
 import automationImg from '@assets/images/carousel/Software.png'
 import appDevelopmentImg from '@assets/images/carousel/appDesign.png'
 import { Link } from 'react-router-dom'
@@ -127,25 +127,24 @@ function PreviewSection() {
       title: 'Software Development',
       description: 'From small scripts to complex applications for desktop and mobile devices, we can help you build the software you need.',
       imgSrc: softwareDevelopmentImg,
-      imgStyles: {
-        bottom: '-50px',
-      }
     },
     {
       title: 'Consulting',
       description: 'We provide techical consulting services to help you feel confident in your technical decisions.',
-      imgSrc: null,
+      imgSrc: consultingImg,
     },
     {
       title: 'UI/UX Design',
       description: 'We develop UI/UX designs that are fast, responsive, and easy to use.',
       imgSrc: UxDesignImg,
-
     },
     {
       title: 'Web Building',
       description: 'From small landing pages to complex websites, we can help you build the website you need.',
-      imgSrc: null,
+      imgSrc: webBuildingImg,
+      imgStyles: {
+        width: '500px',
+      }
     },
     {
       title: 'Automation',
@@ -156,12 +155,6 @@ function PreviewSection() {
       title: 'App Development',
       description: 'We can help you develop apps for desktop and mobile devices.',
       imgSrc: appDevelopmentImg,
-      imgStyles: {
-        bottom: '-100px',
-        width: '50%',
-        maxWidth: '500px',
-        right: '60px',
-      }
     }
   ]
 
@@ -180,10 +173,13 @@ function PreviewSection() {
                   <div key={index} className="preview-carousel-item-container" id={`preview-carousel-item-${index + 1}`} ref={registerItemRef(index)}>
                     <div 
                       className={`preview-carousel-item ${activeItemId === `preview-carousel-item-${index + 1}` ? "inView" : ""}`}>
+                      {item.imgSrc && <img src={item.imgSrc} style={item.imgStyles? item.imgStyles : {}} alt={item.title} />}
+                      <div className='text-background'>
                       <h2>{item.title}</h2>
                       <p>{item.description}</p>
-                      {item.imgSrc && <img src={item.imgSrc} alt={item.title} style={item.imgStyles? item.imgStyles : {}}/>}
-                      <Link to={`#${item.title}`}>Learn more</Link>
+                      
+                       <Link to={`#${item.title}`}>Learn more</Link>
+                      </div>
                     </div>
                   </div>
                 ))}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { IoFlash, IoCash, IoHandRight, IoRocket } from 'react-icons/io5';
 import DevicesDisplay from '../DevicesDisplay';
 import './WhyUs.css';
 import AppImage from '@assets/images/carousel/UXDesign.png'
@@ -18,25 +19,25 @@ const WhyUs = () => {
     {
       title: 'Built for Speed',
       body: 'Launch your product in weeks, not months. We use agile development practices to deliver MVPs fast, so you can start validating your ideas with real users.',
-      icon: '⚡',
+      icon: <IoFlash />,
       display: AppImage
     },
     {
       title: 'Transparent Pricing',
       body: 'No surprises, no hidden fees. Get a clear fixed quote within 48 hours. We believe in honest pricing that respects your startup budget.',
-      icon: '💰',
+      icon: <IoCash />,
       display: WebsiteImage
     },
     {
       title: 'Founder-to-Founder',
       body: 'We speak entrepreneur. Having built our own products, we understand the unique challenges you face and deliver solutions that truly support your vision.',
-      icon: '🤝',
+      icon: <IoHandRight />,
       display: LandingPageImage
     },
     {
       title: 'Something Else',
       body: 'It is crazy when you get a lot of text to talk about something cool. But this is even crazier when you get a lot of text to talk about something cool.',
-      icon: '🤝',
+      icon: <IoRocket />,
       display: LandingPageImage
     },
   ]
@@ -50,7 +51,7 @@ const WhyUs = () => {
             {items.map((item, index) => (
               <div className={`item ${openIndex === index ? 'open' : ''}`} key={index} onClick={() => setOpenIndex(index)}>
                 <div className="acc-header">
-                  <span className="icon-emoji" style={{ fontSize: '24px' }}>
+                  <span className="icon-emoji">
                     {item.icon}
                   </span>
                   <h3>{item.title}</h3>
