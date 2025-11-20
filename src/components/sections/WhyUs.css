@@ -164,6 +164,24 @@
   margin-top: 12px;
 }
 
+.why-us-section .acc-content .items .item .icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  transform: rotate(0deg);
+  transition: all 0.25s ease-in-out;
+}
+
+.why-us-section .acc-content .items .item.open .icon-container {
+  /* background: red; */
+  transform: rotate(-20deg);
+}
+
 .why-us-section .acc-content .items .item .body p {
   margin: 0;
   font-size: clamp(0.9375rem, 1.2vw, 1.0625rem);
