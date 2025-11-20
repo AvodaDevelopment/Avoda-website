@@ -93,9 +93,13 @@ function Hero() {
             <Link to="/contact" className="btn btn-primary">Get Started</Link>
             <Link to="/about" className="btn btn-secondary">Learn More</Link>
           </div>
-          <motion.div className={"hero-scroll-down"} 
-          style={{opacity:scrollHintOpacity}}
-          >scroll down <IoArrowDown /></motion.div>
+          <motion.div 
+            className="hero-scroll-down" 
+            style={{opacity:scrollHintOpacity}}
+          >
+            <span>Scroll Down</span>
+            <IoArrowDown />
+          </motion.div>
         </div>
       </div>
     </motion.section>
