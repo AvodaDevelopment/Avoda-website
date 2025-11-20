@@ -10,32 +10,28 @@ const WhyUs = () => {
 
   const [openIndex, setOpenIndex] = useState(0);
 
-  // const item = (title, body) => {
-
-  // }
-
   const items = [
     {
-      title: 'Built for Speed',
-      body: 'Launch your product in weeks, not months. We use agile development practices to deliver MVPs fast, so you can start validating your ideas with real users.',
+      title: 'Built for You',
+      body: 'We build your product with you in mind. We listen to your needs and deliver a product that goes beyond your expectations.',
       icon: '⚡',
       display: AppImage
     },
     {
-      title: 'Transparent Pricing',
-      body: 'No surprises, no hidden fees. Get a clear fixed quote within 48 hours. We believe in honest pricing that respects your startup budget.',
+      title: 'Affordable Pricing',
+      body: 'No surprises, no hidden fees. We believe in honest pricing that respects your startup budget. We are open to negotiating custom pricing for your project.',
       icon: '💰',
       display: WebsiteImage
     },
     {
       title: 'Founder-to-Founder',
-      body: 'We speak entrepreneur. Having built our own products, we understand the unique challenges you face and deliver solutions that truly support your vision.',
+      body: 'We speak entrepreneur. We understand the unique challenges you face and deliver solutions that truly support your vision.',
       icon: '🤝',
       display: LandingPageImage
     },
     {
-      title: 'Something Else',
-      body: 'It is crazy when you get a lot of text to talk about something cool. But this is even crazier when you get a lot of text to talk about something cool.',
+      title: 'Built Better',
+      body: 'With deep expertise in enterprise-grade web technologies like Amazon Web Services and Microsoft Azure, we build scalable solutions designed to grow alongside your business.',
       icon: '🤝',
       display: LandingPageImage
     },
