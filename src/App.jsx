@@ -15,8 +15,8 @@ import Features from './components/sections/Features'
 function HomePage() {
   return (
     <>
-    <div className="page-bg">
-    </div>
+    {/* <div className="page-bg">
+    </div> */}
       <Hero />
       
       <div className="intro-spacer"></div>

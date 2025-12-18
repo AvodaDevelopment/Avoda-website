@@ -70,7 +70,7 @@ function Contact() {
 
   return (
     <div className="contact-page">
-      <div className="contact-page-bg page-bg"></div>
+
       <motion.div 
         className="contact-page-container"
         initial="hidden"

@@ -32,6 +32,7 @@ function Hero() {
   // When scrollY is viewport height, opacity is 0 (fully faded)
   const heroOpacity = useTransform(scrollY, [0, viewportHeight], [1, 0])
   const heroScale = useTransform(scrollY, [0, viewportHeight], [1, 0.8])
+  const heroPosition = useTransform(scrollY, [0, viewportHeight], [0, -100])
   
   // Transform scroll position to scroll hint opacity
   const scrollHintOpacity = useTransform(scrollY, [0, 1], [1, 0])
@@ -71,7 +72,7 @@ function Hero() {
   return (
     <motion.section
       className="hero"
-      style={{ opacity: heroOpacity, scale: heroScale }}
+      style={{ opacity: heroOpacity, scale: heroScale, translateY: heroPosition }}
     >
       {/* Dark overlay that fades in on scroll */}
       {/* <motion.div

@@ -1,31 +1,33 @@
-.mission-statement-overlay{
+/* .mission-statement-overlay{
     position: absolute;
     inset: 0;
     background: radial-gradient(circle at top left, rgba(48, 232, 177, 0.358), rgba(163, 203, 207, 0.41) 55%), radial-gradient(circle at bottom right, rgba(171, 221, 255, 0.16), transparent 50%);
     pointer-events: none;
 
-}
+} */
 .mission-statement {
-    /* margin: 40px 40px; */
+    margin: 40px 40px;
+    height: 500px;
     position: relative;
     display: flex;
     flex-direction: row;
     gap: 64px;
-    align-items:flex-end;
-    justify-content: center;
-    padding: 96px clamp(32px, 8vw, 80px);
-    background: radial-gradient(circle at top left, rgba(48, 232, 176, 0.12), transparent 55%),
-                radial-gradient(circle at bottom right, rgba(171, 221, 255, 0.16), transparent 50%);
+    align-items:center;
+    justify-content: space-between;
+    padding: 40px;
+    box-sizing: border-box;
+
+    /* background: radial-gradient(circle at top left, rgba(48, 232, 176, 0.12), transparent 55%),
+                radial-gradient(circle at bottom right, rgba(171, 221, 255, 0.16), transparent 50%); */
    /* border-radius: 32px; */
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(16px);
-    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.35);
+    /* border: 1px solid rgba(255, 255, 255, 0.12); */
+    /* backdrop-filter: blur(16px); */
+
     overflow: hidden;
-    padding-top: 8rem;
 
 }
 
-.mission-statement::before {
+/* .mission-statement::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -38,15 +40,15 @@
     pointer-events: none;
     transition: background 0.1s ease-out;
     z-index: 2;
-}
+} */
 
 .mission-statement-text {
     position: relative;
     z-index: 3;
     display: flex;
-    flex-direction: column;
     gap: 32px;
     color: var(--text-secondary);
+
 }
 
 .mission-statement-text h2 {
@@ -109,10 +111,10 @@
 .mission-statement-image {
     position: relative;
     z-index: 1;
-
-    
-    width: 100%;
-    max-width: 400px;
+    object-fit: cover;
+    max-width: 50vw;
+    height: 100%;
+    border-radius: 20px;
 }
 
 
@@ -126,7 +128,9 @@
         text-align: center;
         align-items: center;
     }
-
+    .mission-statement-image {
+        max-height: 100%;
+    }
     .mission-statement-text {
         align-items: center;
         gap: 24px;
@@ -155,20 +159,12 @@
     }
 
     .mission-statement-image {
-        min-height: 220px;
-        border-radius: 20px;
+        max-width: 100%;
+        width: 100%;
     }
 
     .mission-statement-image::after {
         inset: 14px;
         border-radius: 16px;
     }
-}
-
-.mission-statement-curveCutOut{
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    
 }

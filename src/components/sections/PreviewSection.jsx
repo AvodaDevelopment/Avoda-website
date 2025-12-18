@@ -3,12 +3,15 @@ import './PreviewSection.css'
 import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useRef, useState } from 'react';
+
+//images
 import consultingImg from '@assets/images/carousel/consulting.jpg'
-import softwareDevelopmentImg from '@assets/images/carousel/Software.png'
-import UxDesignImg from '@assets/images/carousel/UXDesign.png'
-import webBuildingImg from '@assets/images/carousel/website.png'
-import automationImg from '@assets/images/carousel/Software.png'
-import appDevelopmentImg from '@assets/images/carousel/appDesign.png'
+import softwareDevelopmentImg from '@assets/images/carousel/ux-design.jpg'
+import UxDesignImg from '@assets/images/carousel/ux-design.jpg'
+import webBuildingImg from '@assets/images/carousel/website.jpg'
+import automationImg from '@assets/images/carousel/automation.jpg'
+import appDevelopmentImg from '@assets/images/carousel/app-development.jpg'
+
 import { Link } from 'react-router-dom'
 function PreviewSection() {
     const controls = useAnimation();
@@ -26,12 +29,10 @@ function PreviewSection() {
       const containerVariants = {
         hidden: {
           opacity: 0,
-          rotateX: -10,
           y: 80,
         },
         visible: {
           opacity: 1,
-          rotateX: 0,
           y: 0,
           transition: {
             duration: 0.5,
@@ -142,14 +143,11 @@ function PreviewSection() {
       title: 'Web Building',
       description: 'From small landing pages to complex websites, we can help you build the website you need.',
       imgSrc: webBuildingImg,
-      imgStyles: {
-        width: '500px',
-      }
     },
     {
       title: 'Automation',
       description: 'We can help you automate your business processes to save time and improve efficiency.',
-      imgSrc: null,
+      imgSrc: automationImg,
     },
     {
       title: 'App Development',
@@ -164,7 +162,7 @@ function PreviewSection() {
     className="preview-section">
       <motion.div
     className="preview-carousel-container"
-     style={{ rotateX: rotateIn, opacity: fadeIn, translateY: moveUp}}
+     style={{opacity: fadeIn, translateY: moveUp}}
       >
         
         <div className="preview-carousel">
@@ -173,11 +171,10 @@ function PreviewSection() {
                   <div key={index} className="preview-carousel-item-container" id={`preview-carousel-item-${index + 1}`} ref={registerItemRef(index)}>
                     <div 
                       className={`preview-carousel-item ${activeItemId === `preview-carousel-item-${index + 1}` ? "inView" : ""}`}>
-                      {item.imgSrc && <img src={item.imgSrc} style={item.imgStyles? item.imgStyles : {}} alt={item.title} />}
+                      {item.imgSrc && <img src={item.imgSrc} alt={item.title} />}
                       <div className='text-background'>
                       <h2>{item.title}</h2>
                       <p>{item.description}</p>
-                      
                        <Link to={`#${item.title}`}>Learn more</Link>
                       </div>
                     </div>

@@ -18,12 +18,12 @@
     max-width: 1200px;
     height: 100%;
     border-radius: 32px;
-    background: radial-gradient(circle at top left, rgba(48, 232, 176, 0.12), transparent 55%),
-                radial-gradient(circle at bottom right, rgba(171, 221, 255, 0.16), transparent 50%);
+    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.12), transparent 55%),
+                radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.16), transparent 50%);
     backdrop-filter: blur(10px);
     transform: rotateX(-10deg);
     max-height: 100vh;
-    border: 1.5px solid rgba(104, 104, 104, 0.436);
+    /* border: 1.5px solid rgba(104, 104, 104, 0.436); */
     overflow: hidden;
 }
 .preview-carousel{
@@ -66,7 +66,7 @@
 .preview-carousel-item{
     width:100%;
     height:100%;
-    background-color:rgba(69, 133, 122, 0.354);
+    background-color:rgb(147, 255, 206);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -176,28 +176,28 @@
 @media (max-width: 1000px) {
   .preview-section {
     height: auto;
-    min-height: calc(100vh - 60px);
+    max-height: calc(100vh - 60px);
     padding: 20px 0;
   }
   .preview-carousel {
     padding: 0;
     height: 100%;
-    min-height: calc(100vh - 60px);
+    max-height: calc(100vh - 60px);
   }
   .preview-carousel-container{
     border-radius: 0;
     max-width: 100%;
     height: 100%;
-    min-height: calc(100vh - 60px);
+    max-height: calc(100vh - 60px);
   }
   .preview-carousel-content {
     height: 100%;
-    min-height: calc(100vh - 60px);
+    max-height: calc(100vh - 60px);
     width: 100%;
   }
   .preview-carousel-item-container {
     padding: 0;
-    min-height: calc(100vh - 110px);
+    max-height: calc(100vh - 110px);
     width: 100%;
     height: 100%;
     flex-shrink: 0;
@@ -205,7 +205,7 @@
   .preview-carousel-item {
     width: 100%;
     height: 100%;
-    min-height: calc(100vh - 110px);
+    max-height: calc(100vh - 110px);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -226,16 +226,17 @@
     transform: none;
     width: 100%;
     max-width: 100%;
-    max-height: 50vh;
-    height: auto;
+
+    height: 70vh !important;
+    max-height: 100% !important;
+    min-height: 100% !important;
     opacity: 1;
     z-index: 1;
     order: 1;
-    border-radius: 12px;
-    object-fit: contain;
-    margin-bottom: 10px;
+    border-radius: 0;
+    object-fit: cover;
   }
-  
+
   .preview-carousel-item.inView img {
     transform: none;
     opacity: 1;
@@ -246,18 +247,22 @@
   }
   
   .text-background {
-    max-width: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 20px 15px;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(15px);
+    width: 100% !important;
+    max-height: 100% !important;
+    padding: 20px !important;
+ 
+    background:none !important;
+    backdrop-filter: none !important;
     order: 2;
-    position: relative;
+    position: absolute !important;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    /* border-radius: 0 !important; */
+
+    bottom: 0 !important;
   }
   
   .preview-carousel-item h2 {
@@ -272,15 +277,18 @@
   }
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
+  .preview-section{
+    height: 40vh;
+  }
   .preview-carousel-item-container {
-    min-height: calc(100vh - 110px);
+    max-height: calc(100vh - 110px);
   }
   
   .preview-carousel-item {
     padding: 15px 12px;
     gap: 15px;
-    min-height: calc(100vh - 110px);
+    max-height: calc(100% - 110px);
   }
   
   .preview-carousel-item img {
@@ -292,7 +300,9 @@
     padding: 15px 12px;
     flex: 1;
   }
-  
+  .preview-carousel-content{
+    max-height: calc(100% - 110px);
+  }
   .preview-carousel-item h2 {
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
@@ -302,7 +312,7 @@
     font-size: 0.85rem;
     margin-bottom: 0.5rem;
   }
-}
+} */
 
 .text-background{
     width: 100%;

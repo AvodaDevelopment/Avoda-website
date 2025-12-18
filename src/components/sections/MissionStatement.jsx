@@ -3,7 +3,9 @@ import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
 import './MissionStatement.css'
-// import devices from '../assets/images/devices.png'
+// import devices from '../assets/images/devices.pn
+
+import missionStatementImage from '@assets/images/mission-statement.jpg'
 import DevicesDisplay from '../DevicesDisplay'
 
 function MissionStatement() {
@@ -73,12 +75,7 @@ function MissionStatement() {
                 '--mouse-y': `${mousePosition.y}%`
             }}
         >
-            <motion.div
-                className="mission-statement-overlay"
-                variants={variants}
-                initial="hidden"
-                animate={controls}
-            />
+      
             <div className="mission-statement-text">
                 <div className="name-definition">
                     <h2>Avoda</h2>
@@ -86,12 +83,12 @@ function MissionStatement() {
                     <p>Avoda means work as worship.
                         Our mission is to build with excellence, integrity, and purpose — creating work that serves others and honors the One who gave us the ability to create.</p>
                 </div>
+                
+                   
+               
             </div>
-            <svg className='mission-statement-curveCutOut' id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 463.65 473.47">
-                <g id="Layer_1-2" data-name="Layer 1" fill='rgba(13, 60, 40, 0.15)'>
-                    <path d="M289.67,0c-38.08,0-126.02,30.43-126.02,129.33C163.65,258.4,0,244.58,0,471.42c0,4.61,463.65,0,463.65,0V0h-173.98Z"/>
-                </g>
-            </svg>
+            <img className='mission-statement-image' src={missionStatementImage} alt="Mission Statement" />
+            
 
         </motion.section>
     )

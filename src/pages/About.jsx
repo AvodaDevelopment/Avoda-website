@@ -7,7 +7,7 @@ import JoshuaImage from '@assets/images/people/josh.jpg'
 function About() {
   return (
     <>
-      <div className="page-bg"></div>
+
       <div className="about-page">
         <MissionStatement />
         <SpeakerSection speaker={"Joshua Karr"} title={"CTO"} image={JoshuaImage}>

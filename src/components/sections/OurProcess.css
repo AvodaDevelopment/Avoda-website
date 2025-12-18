@@ -1,9 +1,6 @@
 .our-process-section {
   padding: 6rem 0;
-  background:
-  radial-gradient(circle at top left, rgba(48, 232, 176, 0.082), transparent 60%),
-  radial-gradient(circle at bottom right, rgba(171, 255, 242, 0.11), transparent 55%),
-  #151b20b1;
+  background: black;
   position: relative;
   overflow: hidden;
   color: white;
@@ -38,7 +35,7 @@
 } */
 .process-step {
   background-color: rgba(255, 255, 255, 0.063);
-  color: rgba(203, 243, 255, 0.72);
+  color: var(--font-color);
   backdrop-filter: blur(10px);
   border-radius: 100%;
   width: 70px;
@@ -52,8 +49,9 @@
 .process-step[data-selected="true"]{
   transition: all 0.2s ease;
   scale: 1.07 !important;
-  background-color:  rgba(255, 255, 255, 0.2);
+  background-color: var(--font-color) !important;
   color: white;
+
 }
 .process-step:active{
   scale: 1.02 !important;
@@ -67,7 +65,7 @@
   
 }
 .process-step:hover{
-  background-color:  rgba(255, 255, 255, 0.2);
+  background-color: var(--color);
   scale: 1.05;
 }
 .content-container{
