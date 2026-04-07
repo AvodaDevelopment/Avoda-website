@@ -3,11 +3,8 @@ import './PreviewSection.css'
 import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useRef, useState } from 'react';
-import consultingImg from '@assets/images/carousel/Software.png'
 import softwareDevelopmentImg from '@assets/images/carousel/Software.png'
 import uiUxDesignImg from '@assets/images/carousel/UXDesign.png'
-import webBuildingImg from '@assets/images/carousel/Software.png'
-import automationImg from '@assets/images/carousel/Software.png'
 import appDevelopmentImg from '@assets/images/carousel/appDesign.png'
 import { Link } from 'react-router-dom'
 function PreviewSection() {
@@ -45,6 +42,9 @@ function PreviewSection() {
       const itemRefs = useRef([]);
 
       useEffect(() => {
+        const root = carouselRef.current;
+        if (!root) return;
+
         const observer = new IntersectionObserver(
           (entries) => {
             const visibleEntry = entries
@@ -58,7 +58,7 @@ function PreviewSection() {
             }
           },
           {
-            root: carouselRef.current,
+            root,
             threshold: [0.5, 0.75, 0.95],
           }
         );
@@ -115,11 +115,11 @@ function PreviewSection() {
       };
 
       useEffect(() => {
-        const timeout = setTimeout(() => {
-          nextSlide();
-        }, 10000);
+        // const timeout = setTimeout(() => {
+        //   nextSlide();
+        // }, 10000);
 
-        return () => clearTimeout(timeout);
+        // return () => clearTimeout(timeout);
       }, [activeItemId]);
 
   const content = [
@@ -129,27 +129,52 @@ function PreviewSection() {
       imgSrc: softwareDevelopmentImg,
       imgStyles: {
         bottom: '-50px',
-      }
+      },
+      link: '/contact'
     },
     {
       title: 'Consulting',
-      description: 'We provide techical consulting services to help you feel confident in your technical decisions.',
-      imgSrc: null,
+      description: 'We provide technical consulting services to help you feel confident in your technical decisions.',
+      imgSrc: uiUxDesignImg,
+      imgStyles: {
+        bottom: '-40px',
+        width: '45%',
+        maxWidth: '420px',
+        right: '24px',
+      },
+      link: '/contact'
     },
     {
       title: 'UI/UX Design',
       description: 'We develop UI/UX designs that are fast, responsive, and easy to use.',
-      imgSrc: null,
+      imgSrc: uiUxDesignImg,
+      imgStyles: {
+        bottom: '-36px',
+        width: '48%',
+        maxWidth: '440px',
+        right: '32px',
+      },
+      link: '/contact'
     },
     {
       title: 'Web Building',
       description: 'From small landing pages to complex websites, we can help you build the website you need.',
-      imgSrc: null,
+      imgSrc: softwareDevelopmentImg,
+      imgStyles: {
+        bottom: '-45px',
+        opacity: 0.95,
+      },
+      link: '/contact'
     },
     {
       title: 'Automation',
       description: 'We can help you automate your business processes to save time and improve efficiency.',
-      imgSrc: null,
+      imgSrc: softwareDevelopmentImg,
+      imgStyles: {
+        bottom: '-55px',
+        right: '20px',
+      },
+      link: '/contact'
     },
     {
       title: 'App Development',
@@ -160,19 +185,22 @@ function PreviewSection() {
         width: '50%',
         maxWidth: '500px',
         right: '60px',
-      }
+      },
+      link: '/contact'
     }
   ]
 
   return (
-    <section 
+    <section
     ref={ref}
-    className="preview-section">
+    className="preview-section"
+    aria-roledescription="carousel"
+    aria-label="Services we offer"
+    >
       <motion.div
     className="preview-carousel-container"
      style={{ rotateX: rotateIn, opacity: fadeIn, translateY: moveUp}}
       >
-        
         <div className="preview-carousel">
             <div className="preview-carousel-content" ref={carouselRef}>
                 {content.map((item, index) => (
@@ -182,15 +210,23 @@ function PreviewSection() {
                       <h2>{item.title}</h2>
                       <p>{item.description}</p>
                       {item.imgSrc && <img src={item.imgSrc} alt={item.title} style={item.imgStyles? item.imgStyles : {}}/>}
-                      <Link to={`#${item.title}`}>Learn more</Link>
+                      {item.link && <Link className="preview-carousel-item-link" to={item.link}>Learn more</Link>}
                     </div>
                   </div>
                 ))}
                 
             </div>
-            <ul className="preview-carousel-control">
+            <ul className="preview-carousel-control" aria-label="Slide indicators">
               {content.map((item, index) => (
-                <li key={index}><button type="button" className={`preview-carousel-control-button ${activeItemId === `preview-carousel-item-${index + 1}` ? "selected" : ""}`} onClick={() => handleControlClick(`preview-carousel-item-${index + 1}`, index)}/></li>
+                <li key={index}>
+                  <button
+                    type="button"
+                    className={`preview-carousel-control-button ${activeItemId === `preview-carousel-item-${index + 1}` ? 'selected' : ''}`}
+                    aria-label={`Go to ${item.title}`}
+                    aria-current={activeItemId === `preview-carousel-item-${index + 1}` ? true : undefined}
+                    onClick={() => handleControlClick(`preview-carousel-item-${index + 1}`, index)}
+                  />
+                </li>
               ))}
             </ul>
         </div>

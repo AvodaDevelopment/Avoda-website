@@ -71,3 +71,53 @@
     display: inline-block;
     margin-left: 0.5rem;
 }
+
+@media (max-width: 768px) {
+    .speaker-section {
+        padding: clamp(1.25rem, 5vw, 2rem) clamp(0.75rem, 4vw, 1rem);
+    }
+
+    .speaker-section-content-container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: clamp(1.25rem, 5vw, 1.75rem) clamp(1rem, 4vw, 1.25rem) 1.5rem;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .speaker-section-content-profile {
+        position: relative;
+        transform: none;
+        bottom: auto;
+        right: auto;
+        width: min(132px, 36vw);
+        height: min(132px, 36vw);
+        align-self: center;
+        margin-bottom: 1rem;
+        flex-shrink: 0;
+    }
+
+    .speaker-section h3 {
+        margin-right: 0;
+        margin-top: 1rem;
+        margin-bottom: 0;
+        text-align: center;
+        font-size: clamp(1rem, 3.8vw, 1.2rem);
+    }
+
+    .speaker-section-content {
+        font-size: clamp(0.95rem, 3.5vw, 1.05rem);
+    }
+
+    .speaker-section-content p {
+        margin-top: 0.75rem;
+        line-height: 1.65;
+    }
+
+    .speaker-section-content p::before,
+    .speaker-section-content p::after {
+        font-size: clamp(1.75rem, 8vw, 2.5rem);
+        vertical-align: -0.15em;
+    }
+}

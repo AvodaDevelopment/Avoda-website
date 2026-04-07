@@ -206,18 +206,18 @@
 
 @media (max-width: 640px) {
   .why-us-section {
-    padding: 56px 24px;
+    padding: clamp(2.25rem, 7vw, 3.5rem) clamp(1rem, 4vw, 1.25rem);
   }
 
   .why-us-section .acc-container {
-    gap: 32px;
+    gap: clamp(24px, 6vw, 32px);
   }
 
   .why-us-section .acc-content .items .item {
-    padding: 16px 20px;
+    padding: clamp(14px, 4vw, 18px) clamp(16px, 4vw, 20px);
   }
 
   .why-us-section .display {
-    min-height: 300px;
+    min-height: min(280px, 58vw);
   }
 }

@@ -140,12 +140,17 @@
 
 @media (max-width: 640px) {
     .mission-statement {
-        gap: 32px;
-        padding: 56px 24px;
+        gap: clamp(24px, 6vw, 32px);
+        padding: clamp(2.5rem, 8vw, 3.5rem) clamp(1rem, 4vw, 1.25rem);
+        padding-top: clamp(2.75rem, 9vw, 4rem);
+    }
+
+    .mission-statement-text {
+        gap: clamp(18px, 5vw, 24px);
     }
 
     .mission-statement-image {
-        min-height: 220px;
+        min-height: min(200px, 42vw);
         border-radius: 20px;
     }
 

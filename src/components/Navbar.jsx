@@ -28,6 +28,16 @@ function Navbar() {
     }
   }, [])
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      const prev = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.body.style.overflow = prev
+      }
+    }
+  }, [isMenuOpen])
+
   return (
     <div className="navbar-container">  
     <nav className={`navbar ${isScrolled ? 'floating-navbar' : ''}`}>
@@ -37,13 +47,33 @@ function Navbar() {
             <img className="logo" src={logoImg} alt="Avoda"/>
           </Link>
           
-          <button className="navbar-toggle" onClick={toggleMenu}>
+          <button
+            type="button"
+            className={`navbar-toggle ${isMenuOpen ? 'open' : ''}`}
+            onClick={toggleMenu}
+            aria-expanded={isMenuOpen}
+            aria-controls="primary-navigation"
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          >
             <span></span>
             <span></span>
             <span></span>
           </button>
 
-          <ul className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
+          {isMenuOpen && (
+            <button
+              type="button"
+              className="navbar-backdrop"
+              aria-hidden="true"
+              tabIndex={-1}
+              onClick={() => setIsMenuOpen(false)}
+            />
+          )}
+
+          <ul
+            id="primary-navigation"
+            className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}
+          >
             <li>
               <Link to="/" onClick={() => setIsMenuOpen(false)}>
                 <span className="nav-icon"><IoHome /></span>

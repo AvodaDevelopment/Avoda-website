@@ -7,7 +7,7 @@ import JackImage from '@assets/images/people/jack.jpg'
 const team = [
     {
         name: 'Joshua Karr',
-        title: 'Founder & CEO',
+        title: 'Co-Founder & CEO',
         description: 'Joshua is an ambitous inovator and thinker who loves creative ideas. His love for software engineering and entrepreneurship is what drives him to help build new and innovative solutions.',
         image: JoshuaImage
     },

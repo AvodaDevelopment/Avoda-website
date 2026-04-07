@@ -1,7 +1,7 @@
 :root {
   --primary-color: #00c392; 
   --primary-dark: hwb(166 0% 71%);
-  --primary-light: #00c392;
+  --primary-light: #c7e4d8;
   --secondary-color: #00456A;
   --text-primary: #09090A;
   --text-secondary: #ffffff;
@@ -34,10 +34,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--text-primary);
+  color: var(--text-secondary);
   background-color: rgb(10, 10, 10);
   line-height: 1.6;
-  
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -60,7 +59,6 @@ h3 {
 
 p {
   margin-bottom: 1rem;
-  color: var(--text-secondary);
 }
 
 a {
@@ -84,6 +82,12 @@ button {
   padding: 0 1.5rem;
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 0 clamp(0.875rem, 4vw, 1.25rem);
+  }
+}
+
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
@@ -104,7 +108,7 @@ button {
   background-color: var(--primary-dark);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
-  color: var(--primary-color);
+  color: #fff;
 }
 
 .btn-secondary {
@@ -140,7 +144,7 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/src/assets/images/hero-bg.png');
+  background-image: url('./assets/images/hero-bg.png');
   background-size: cover;
   background-attachment: fixed;
   background-position: center;

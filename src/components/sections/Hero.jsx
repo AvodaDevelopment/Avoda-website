@@ -14,9 +14,18 @@ function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [viewportHeight, setViewportHeight] = useState(typeof window !== 'undefined' ? window.innerHeight : 800);
-  
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
   // Track scroll position
   const { scrollY } = useScroll()
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setPrefersReducedMotion(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
 
   // Update viewport height on resize
   useEffect(() => {
@@ -36,6 +45,21 @@ function Hero() {
   // Transform scroll position to scroll hint opacity
   const scrollHintOpacity = useTransform(scrollY, [0, 1], [1, 0])
   useEffect(() => {
+    if (!prefersReducedMotion) return;
+    setDisplayedText(textArray[currentIndex]);
+  }, [prefersReducedMotion, currentIndex, textArray]);
+
+  useEffect(() => {
+    if (!prefersReducedMotion) return;
+    const id = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % textArray.length);
+    }, 3500);
+    return () => clearInterval(id);
+  }, [prefersReducedMotion, textArray]);
+
+  useEffect(() => {
+    if (prefersReducedMotion) return;
+
     const currentWord = textArray[currentIndex];
     let timeout;
 
@@ -66,7 +90,7 @@ function Hero() {
     }
 
     return () => clearTimeout(timeout);
-  }, [displayedText, currentIndex, isDeleting, textArray]);
+  }, [displayedText, currentIndex, isDeleting, textArray, prefersReducedMotion]);
 
   return (
     <motion.section

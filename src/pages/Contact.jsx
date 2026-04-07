@@ -99,91 +99,125 @@ function Contact() {
           initial="hidden"
           animate="visible"
         >
-          <motion.div 
-            className="contact-page-info contact-info" 
+          <motion.section
+            className="contact-page-details"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
+            aria-labelledby="contact-details-heading"
           >
-            <motion.div className="contact-page-info-item info-item" variants={fadeInUp}>
-              <h3>Email</h3>
-              <p>joshuatkarr@gmail.com</p>
-            </motion.div>
-            <motion.div className="contact-page-info-item info-item" variants={fadeInUp}>
-              <h3>Phone</h3>
-              <p>+1 (971) 979-2852</p>
-            </motion.div>
-          </motion.div>
-          <hr />
-          <motion.form 
-            className="contact-page-form contact-form" 
-            onSubmit={handleSubmit} 
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.div className="contact-page-form-group form-group" variants={fadeInUp}>
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </motion.div>
-            <motion.div className="contact-page-form-group form-group" variants={fadeInUp}>
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </motion.div>
-            <motion.div className="contact-page-form-group form-group" variants={fadeInUp}>
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
-            </motion.div>
-            <motion.button 
-              type="submit" 
-              className="contact-page-btn btn btn-primary"
+            <motion.h2
+              id="contact-details-heading"
+              className="contact-page-section-title"
               variants={fadeInUp}
-              disabled={isSubmitting}
             >
-              Send Message
-            </motion.button>
-            {isSubmitted && (
-              <motion.p 
-                className="contact-page-submitted"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
+              Contact details
+            </motion.h2>
+            <motion.div
+              className="contact-page-info contact-info"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.div className="contact-page-info-item info-item" variants={fadeInUp}>
+                <h3>Email</h3>
+                <p>
+                  <a href="mailto:joshuatkarr@gmail.com">joshuatkarr@gmail.com</a>
+                </p>
+              </motion.div>
+              <motion.div className="contact-page-info-item info-item" variants={fadeInUp}>
+                <h3>Phone</h3>
+                <p>
+                  <a href="tel:+19719792852">+1 (971) 979-2852</a>
+                </p>
+              </motion.div>
+            </motion.div>
+          </motion.section>
+
+          <motion.section
+            className="contact-page-message"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            aria-labelledby="contact-message-heading"
+          >
+            <motion.h2
+              id="contact-message-heading"
+              className="contact-page-section-title"
+              variants={fadeInUp}
+            >
+              Send a message
+            </motion.h2>
+            <motion.form
+              className="contact-page-form contact-form"
+              onSubmit={handleSubmit}
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.div className="contact-page-form-group form-group" variants={fadeInUp}>
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </motion.div>
+              <motion.div className="contact-page-form-group form-group" variants={fadeInUp}>
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </motion.div>
+              <motion.div className="contact-page-form-group form-group" variants={fadeInUp}>
+                <label htmlFor="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                ></textarea>
+              </motion.div>
+              <motion.button
+                type="submit"
+                className="contact-page-btn btn btn-primary"
+                variants={fadeInUp}
+                disabled={isSubmitting}
               >
-                Message Sent!
-              </motion.p>
-            )}
-            {isSubmitting && (
-              <motion.p 
-                className="contact-page-submitted"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                Sending...
-              </motion.p>
-            )}
-          </motion.form>
+                Send Message
+              </motion.button>
+              {isSubmitted && (
+                <motion.p
+                  className="contact-page-submitted"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  Message Sent!
+                </motion.p>
+              )}
+              {isSubmitting && (
+                <motion.p
+                  className="contact-page-submitted"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  Sending...
+                </motion.p>
+              )}
+            </motion.form>
+          </motion.section>
         </motion.div>
       </motion.div>
     </div>

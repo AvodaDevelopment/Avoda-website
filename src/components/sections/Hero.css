@@ -104,11 +104,34 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding: 4rem 0;
+    padding: clamp(4.5rem, 14vw, 5.5rem) 0 2rem;
+  }
+
+  .hero .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: clamp(1rem, 5vw, 1.5rem);
+    padding-right: clamp(1rem, 5vw, 1.5rem);
+    box-sizing: border-box;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .center-logo img {
+    width: min(168px, 42vw);
+    height: min(168px, 42vw);
   }
 
   .hero-title {
-    font-size: 2.5rem;
+    font-size: clamp(1.65rem, 7.5vw, 2.5rem);
+    margin-bottom: 1.25rem;
+  }
+
+  .gradient-text::after {
+    height: clamp(1.75rem, 6vw, 2.75rem);
+    margin-bottom: -3px;
   }
 
   .hero-subtitle {
@@ -117,12 +140,23 @@
 
   .hero-buttons {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+    gap: 0.75rem;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-buttons .btn {
     width: 100%;
-    max-width: 300px;
+    max-width: none;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .hero-scroll-down {
+    bottom: clamp(16px, 6vw, 32px);
+    font-size: 0.75rem;
   }
 }
 

@@ -66,7 +66,7 @@
 
 @media (max-width: 768px) {
   .about-page {
-    padding: 2rem 0;
+    padding: clamp(1.5rem, 5vw, 2rem) clamp(0.75rem, 4vw, 1rem);
   }
 
   .about-header h1 {
